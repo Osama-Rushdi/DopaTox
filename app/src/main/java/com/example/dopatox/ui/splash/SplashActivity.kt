@@ -6,7 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dopatox.R
 import com.example.dopatox.databinding.ActivitySplashBinding
-import com.example.dopatox.ui.home.MainActivity
+import com.example.dopatox.ui.onboarding.OnBoardingActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         binding.logo.startAnimation(popOutAnimation)
 
         Handler().postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, OnBoardingActivity::class.java))
             finish()
         }, 3000)
     }

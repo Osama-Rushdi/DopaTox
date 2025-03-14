@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DopaTox</string>
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
 </resources>

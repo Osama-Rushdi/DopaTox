@@ -5,14 +5,32 @@ import android.os.Build
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.example.dopatox.R
+import com.example.dopatox.domain.model.BoardItem
 
 object Constants {
-    const val THEME = "theme"
-    const val LANGUAGE = "language"
-    const val IS_FIRST = "newUser"
 
     fun runAnimation(context: Context, animId: Int): Animation =
         AnimationUtils.loadAnimation(context, animId)
+
+    val boards: List<BoardItem>
+        get() = listOf(
+            BoardItem(
+                R.drawable.frame_1,
+                "Break free from digital addiction. Live more.",
+                "Encouraging you to break away from unhealthy screen habits and experience a more satisfying, realistic journey.",
+            ),
+            BoardItem(
+                R.drawable.frame_2,
+                "Smart habits start here. Balance digital life.",
+                "The app helps you build a healthier digital routine and find harmony between online and offline life.",
+            ),
+            BoardItem(
+                R.drawable.frame_3,
+                "Less screen, more life. Are you ready?",
+                "A motivational challenge to inspire you to reduce screen time and engage in beneficial activities.",
+            )
+        )
 
     fun blurView(view: View, degree: Float) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
