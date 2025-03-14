@@ -3,10 +3,11 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import com.example.dopatox.R
 import com.example.dopatox.domain.model.BoardItem
+
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 
 object Constants {
 
