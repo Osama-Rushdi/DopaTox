@@ -13,12 +13,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/ice_blue"
         android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/app_name"
-        app:titleTextColor="@color/black"
-        />
+        app:titleTextColor="@color/black" />
 
     <fragment
         android:id="@+id/fragment_container"
