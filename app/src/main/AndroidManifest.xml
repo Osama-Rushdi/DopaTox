@@ -16,6 +16,11 @@
         android:theme="@style/Theme.DopaTox"
         tools:targetApi="31">
         <activity
+            android:name=".ui.auth.AuthActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
             android:name=".ui.onboarding.OnBoardingActivity"
             android:exported="false" />
         <activity

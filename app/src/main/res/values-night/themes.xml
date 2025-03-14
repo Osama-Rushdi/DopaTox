@@ -5,17 +5,25 @@
         <item name="colorOnPrimary">@color/white</item>
 
 
-<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
-<!--        <item name="colorSecondary">@color/white</item>-->
-<!--        <item name="colorOnSecondary">@color/black_primary</item>-->
+        <item name="drawerArrowStyle">
+            @style/DrawerArrowStyle
+        </item>
+
+        <!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+        <!--        <item name="colorSecondary">@color/white</item>-->
+        <!--        <item name="colorOnSecondary">@color/black_primary</item>-->
 
 
+        <!--        <item name="colorPrimaryVariant">@color/PrimaryVariant</item>-->
 
-<!--        <item name="colorPrimaryVariant">@color/PrimaryVariant</item>-->
+        <!--        <item name="colorSecondaryVariant">@color/black_primary</item>-->
+        <!--        <item name="colorTertiary">#FFFF00</item>-->
+        <!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+        <!--        <item name="android:statusBarColor">@color/black_primary</item>-->
+    </style>
 
-<!--        <item name="colorSecondaryVariant">@color/black_primary</item>-->
-<!--        <item name="colorTertiary">#FFFF00</item>-->
-<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
-<!--        <item name="android:statusBarColor">@color/black_primary</item>-->
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/white</item>
     </style>
 </resources>
