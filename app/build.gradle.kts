@@ -73,4 +73,7 @@ dependencies {
     implementation (libs.glide)
     // lottie animation
     implementation(libs.lottie)
+    // view pager
+    implementation (libs.androidx.viewpager2)
+    implementation (libs.dotsindicator)
 }
