@@ -17,16 +17,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
         android:id="@+id/dotsIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:dotsColor="?attr/colorPrimaryContainer"
         app:dotsStrokeColor="?attr/colorSecondary"
+        app:dotsSize="12dp"
         app:dotsStrokeWidth="8dp"
+        app:dotsSpacing="4dp"
+        app:dotsWidthFactor="4"
         app:layout_constraintBottom_toBottomOf="@+id/startBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/startBtn" />
+        app:layout_constraintTop_toTopOf="@+id/startBtn"
+        app:progressMode="true"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/startBtn"
