@@ -35,3 +35,26 @@ To run this application locally, follow these steps:
    git clone https://github.com/Abdallah-Elsobky/Dopatox.git
 2. Open in Android Studio
 3. Build and Run on your preferred Android device or emulator.
+
+
+## Contributors ✨
+
+Thanks to these amazing people for contributing! 💖
+
+<table>
+   <tr>
+    <td align="center">
+      <a href="https://github.com/Abdallah-Elsobky">
+        <img src="https://avatars.githubusercontent.com/Abdallah-Elsobky?s=100&v=4" width="100px;" alt=""/>
+        <br /><sub><b>Abdallah Elsobky</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/abdelrahman-rashed-ali">
+        <img src="https://avatars.githubusercontent.com/abdelrahman-rashed-ali?s=100&v=4" width="100px;" alt=""/>
+        <br /><sub><b>Abdelrahman Rashed</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
