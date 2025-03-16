@@ -8,6 +8,7 @@ import com.example.dopatox.R
 import com.example.dopatox.databinding.ActivityOnBoardingBinding
 import com.example.dopatox.ui.auth.AuthActivity
 import com.example.trendify.ui.onboarding.OnboardingAdapter
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnBoardingBinding
@@ -19,7 +20,7 @@ class OnBoardingActivity : AppCompatActivity() {
         val adapter = OnboardingAdapter(Constants.boards)
         val viewPager = binding.viewPager
         viewPager.adapter = adapter
-        val indicator = binding.dotsIndicator
+        val indicator = findViewById<DotsIndicator>(R.id.dotsIndicator)
         val intent = Intent(this, AuthActivity::class.java)
         indicator.attachTo(viewPager)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
