@@ -45,13 +45,13 @@ Thanks to these amazing people for contributing! 💖
    <tr>
     <td align="center">
       <a href="https://github.com/Abdallah-Elsobky">
-        <img src="https://github.com/Abdallah-Elsobky.png" width="100px;" style="border-radius: 50%;" alt=""/>
+        <img src="https://avatars.githubusercontent.com/Abdallah-Elsobky?s=100&v=4" width="100px;" alt=""/>
         <br /><sub><b>Abdallah Elsobky</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/abdelrahman-rashed-ali">
-        <img src="https://github.com/abdelrahman-rashed-ali.png" width="100px;" style="border-radius: 50%;" alt=""/>
+        <img src="https://avatars.githubusercontent.com/abdelrahman-rashed-ali?s=100&v=4" width="100px;" alt=""/>
         <br /><sub><b>Abdelrahman Rashed</b></sub>
       </a>
     </td>
