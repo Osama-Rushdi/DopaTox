@@ -8,10 +8,14 @@ Dopatox is an intelligent digital detox platform designed to help users overcome
 <img src="https://github.com/user-attachments/assets/f3c7159e-8dd6-44f0-9034-6734cae5f1d8" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/17c0d801-eaa3-4b98-9d61-c5c622f9461b" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/26bb9dcc-8f29-4789-9743-95bd93bbdf0f" alt="DopaTox " width="100" />
+<img src="https://github.com/user-attachments/assets/d7011e0d-2450-41dd-9618-f4ac41137217" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/8ad07e0d-a48c-4401-8c8e-da5164908a0b" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/ac2b253f-1e6a-4588-84fb-68aff8e69d38" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/af0cac94-4bc1-4de9-a598-01d945e476b4" alt="DopaTox " width="100" />
 <img src="https://github.com/user-attachments/assets/f5aef5c0-b082-4a62-81b2-6fdf377a9e5e" alt="DopaTox " width="100" />
+<img src="https://github.com/user-attachments/assets/68af3be5-94b7-410f-bf05-e416eb318ad8" alt="DopaTox " width="100" />
+<img src="https://github.com/user-attachments/assets/533bca24-e026-4cee-952c-1d1b32aadd1b" alt="DopaTox " width="100" />
+
 
 <!-- # Dark Mode
 <img src="b" alt="DopaTox " width="100" /> -->
