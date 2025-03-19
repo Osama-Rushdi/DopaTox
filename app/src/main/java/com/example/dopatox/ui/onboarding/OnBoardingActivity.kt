@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.dopatox.R
 import com.example.dopatox.databinding.ActivityOnBoardingBinding
-import com.example.dopatox.ui.auth.AuthActivity
+import com.example.dopatox.ui.permission.PermissionActivity
 import com.example.trendify.ui.onboarding.OnboardingAdapter
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
@@ -21,7 +21,7 @@ class OnBoardingActivity : AppCompatActivity() {
         val viewPager = binding.viewPager
         viewPager.adapter = adapter
         val indicator = findViewById<DotsIndicator>(R.id.dotsIndicator)
-        val intent = Intent(this, AuthActivity::class.java)
+        val intent = Intent(this, PermissionActivity::class.java)
         indicator.attachTo(viewPager)
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
 

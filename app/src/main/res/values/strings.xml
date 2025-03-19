@@ -19,4 +19,15 @@
     <string name="create_account">Create Account</string>
     <string name="enter_the_email">Enter the email address associated with your account, and we\'ll email you a link to reset your password</string>
     <string name="Continue">Continue</string>
+    <string name="permission_access">Enable access for\nDOPATOX</string>
+    <string name="skip">Skip</string>
+    <string name="usage_permission">Usage access</string>
+    <string name="usage_content">To help you track and manage your screen time effectively, Digital Detox requires usage access.</string>
+    <string name="display_permission">Display Over The Apps</string>
+    <string name="display_content">Allows Digital Detox to show helpful reminders and interventions while using other apps</string>
+    <string name="background_permission">Run in Background</string>
+    <string name="background_content">Allow Digital Detox to run in the background to track screen time and apply smart interventions without interruptions.</string>
+    <string name="success">Success</string>
+    <string name="usage_permission_granted">Usage Permission granted</string>
+    <string name="display_over_permission_granted">Display over permission granted</string>
 </resources>
