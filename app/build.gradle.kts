@@ -76,4 +76,6 @@ dependencies {
     // view pager
     implementation (libs.androidx.viewpager2)
     implementation (libs.dotsindicator)
+    // custom toast
+    implementation (libs.motiontoast)
 }
