@@ -30,4 +30,9 @@
     <string name="success">Success</string>
     <string name="usage_permission_granted">Usage Permission granted</string>
     <string name="display_over_permission_granted">Display over permission granted</string>
+    <string name="stats">Stats</string>
+    <string name="challenges">Challenges</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="settings">Settings</string>
 </resources>
