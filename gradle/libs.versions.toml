@@ -1,5 +1,6 @@
 [versions]
 agp = "8.9.0"
+circularprogressbar = "3.1.0"
 glide = "4.16.0"
 hiltAndroid = "2.51.1"
 kotlin = "2.0.0"
@@ -19,9 +20,11 @@ hiltAndroidCompiler = "2.51.1"
 ksp = "2.0.20-1.0.24"
 loggingInterceptor = "4.12.0"
 motiontoast = "1.4"
+mpandroidchart = "v3.1.0"
 navigationFragmentKtx = "2.8.9"
 retrofit = "2.11.0"
 room = "2.6.1"
+roundCornerProgressBar = "2.2.1"
 viewpager2 = "1.1.0"
 dotsindicator = "4.3"
 
@@ -31,6 +34,7 @@ androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-lived
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigationFragmentKtx" }
+circularprogressbar = { module = "com.mikhaellopez:circularprogressbar", version.ref = "circularprogressbar" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
@@ -42,6 +46,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 motiontoast = { module = "com.github.Spikeysanju:MotionToast", version.ref = "motiontoast" }
+mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
@@ -51,6 +56,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+round-corner-progress-bar = { module = "com.akexorcist:round-corner-progress-bar", version.ref = "roundCornerProgressBar" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
