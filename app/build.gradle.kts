@@ -78,4 +78,10 @@ dependencies {
     implementation (libs.dotsindicator)
     // custom toast
     implementation (libs.motiontoast)
+    // progress bar
+    implementation (libs.round.corner.progress.bar)
+    // circle progress
+    implementation (libs.circularprogressbar)
+    // android charts
+    implementation (libs.mpandroidchart)
 }

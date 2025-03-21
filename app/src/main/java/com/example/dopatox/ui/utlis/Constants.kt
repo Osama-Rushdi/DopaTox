@@ -8,6 +8,7 @@ import com.example.dopatox.domain.model.BoardItem
 
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.example.dopatox.domain.model.AppUsage
 
 object Constants {
 
@@ -31,6 +32,20 @@ object Constants {
                 "Less screen, more life. Are you ready?",
                 "A motivational challenge to inspire you to reduce screen time and engage in beneficial activities.",
             )
+        )
+
+    val demoApps: List<AppUsage>
+        get() = listOf(
+            AppUsage("WhatsApp","WhatsApp", 2, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 20, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 2, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 50, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 10, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 22, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 29, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 30, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 34, R.drawable.me),
+            AppUsage("WhatsApp","WhatsApp", 45, R.drawable.me)
         )
 
     fun blurView(view: View, degree: Float) {
