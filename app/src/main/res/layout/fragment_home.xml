@@ -1,234 +1,245 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/ice_blue"
-    android:padding="16dp"
-    tools:context=".ui.home.fragment.HomeFragment">
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/logo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:cardCornerRadius="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/userImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/light_teal"
-            android:contentDescription="user_image"
-            android:src="@drawable/me"
-            tools:ignore="HardcodedText" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/welcome"
-        android:textColor="@color/slate_gray"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
-
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abdallah Elsobky"
-        android:textColor="@color/dark_teal"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/welcome" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/dailyCard"
+    android:fillViewport="true"
+    android:nestedScrollingEnabled="false"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@color/white"
-        app:cardCornerRadius="18dp"
-        app:cardElevation="0dp"
-        app:layout_constraintTop_toBottomOf="@id/userName">
+        android:padding="16dp"
+        tools:context=".ui.home.fragment.HomeFragment">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/userImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/light_teal"
+                android:contentDescription="user_image"
+                android:src="@drawable/me"
+                tools:ignore="HardcodedText" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/welcome"
+            android:textColor="@color/slate_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abdallah Elsobky"
+            android:textColor="@color/dark_teal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/welcome" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/dailyCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/white"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="0dp"
+            app:layout_constraintTop_toBottomOf="@id/userName">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="19dp"
+                android:paddingVertical="16dp">
+
+                <TextView
+                    android:id="@+id/dailyUsage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/today_s_screen_time"
+                    android:textColor="@color/dark_teal"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/setDailyLimits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/set_daily_limits"
+                    android:textColor="@color/dark_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/dailyUsage">
+
+                    <TextView
+                        android:id="@+id/hours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="3"
+                        android:textColor="@color/dark_teal"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/hr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hr"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/hours" />
+
+                    <TextView
+                        android:id="@+id/min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        tools:text="46"
+                        android:textColor="@color/light_teal"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/hr" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/min"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/min" />
+
+                    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+                        android:id="@+id/usageProgress"
+                        android:layout_width="150dp"
+                        android:layout_height="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:rcAnimationEnable="true"
+                        app:rcAnimationSpeedScale="1"
+                        app:rcBackgroundColor="@color/gray"
+                        app:rcMax="5"
+                        app:rcProgress="0"
+                        app:rcProgressColor="@color/dark_teal"
+                        app:rcRadius="10dp"
+                        app:rcSecondaryProgress="0"
+                        app:rcSecondaryProgressColor="@color/light_teal" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dateAction"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="19dp"
-            android:paddingVertical="16dp">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:paddingHorizontal="34dp"
+            app:layout_constraintTop_toBottomOf="@id/dailyCard">
 
-            <TextView
-                android:id="@+id/dailyUsage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/today_s_screen_time"
-                android:textColor="@color/dark_teal"
-                android:textSize="17sp"
+            <ImageView
+                android:id="@+id/leftBack"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/setDailyLimits"
+                android:id="@+id/dateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/set_daily_limits"
+                android:text="Today, October 14th"
                 android:textColor="@color/dark_teal"
-                android:textSize="12sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/rightBack"
+                app:layout_constraintStart_toEndOf="@id/leftBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/rightBack"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:scaleX="-1"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/dailyUsage">
-
-                <TextView
-                    android:id="@+id/hours"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:textColor="@color/dark_teal"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <TextView
-                    android:id="@+id/hr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hr"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/hours" />
-
-                <TextView
-                    android:id="@+id/min"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="46"
-                    android:textColor="@color/dark_teal"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/hr" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/min"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/min" />
-
-                <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-                    android:id="@+id/usageProgress"
-                    android:layout_width="150dp"
-                    android:layout_height="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:rcAnimationEnable="true"
-                    app:rcAnimationSpeedScale="1"
-                    app:rcBackgroundColor="@color/gray"
-                    app:rcMax="100"
-                    app:rcProgress="70"
-                    app:rcProgressColor="@color/dark_teal"
-                    app:rcRadius="10dp"
-                    app:rcSecondaryProgress="85"
-                    app:rcSecondaryProgressColor="@color/light_teal" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dateAction"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:paddingHorizontal="34dp"
-        app:layout_constraintTop_toBottomOf="@id/dailyCard">
-
-        <ImageView
-            android:id="@+id/leftBack"
-            android:layout_width="20dp"
-            android:layout_height="0dp"
-            android:src="@drawable/ic_back"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/dateAction">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="8dp" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/dateTv"
+            android:id="@+id/usedApp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Today, October 14th"
+            android:layout_marginTop="30dp"
+            android:text="@string/most_used_applications"
             android:textColor="@color/dark_teal"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/rightBack"
-            app:layout_constraintStart_toEndOf="@id/leftBack"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stats" />
 
-        <ImageView
-            android:id="@+id/rightBack"
-            android:layout_width="20dp"
-            android:layout_height="0dp"
-            android:scaleX="-1"
-            android:src="@drawable/ic_back"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/appRv"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="60dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/usedApp"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/item_app" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/stats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateAction">
-
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_margin="8dp" />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/usedApp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/most_used_applications"
-        android:textColor="@color/dark_teal"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stats" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/appRv"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usedApp"
-        app:layout_constraintVertical_bias="0.0"
-        tools:listitem="@layout/item_app" />
-</androidx.constraintlayout.widget.ConstraintLayout>

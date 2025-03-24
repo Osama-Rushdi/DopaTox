@@ -1,23 +1,18 @@
 package com.example.dopatox.ui.permission
 
-import android.app.AppOpsManager
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.example.dopatox.R
 import com.example.dopatox.databinding.ActivityPermissionBinding
-import www.sanju.motiontoast.MotionToast
-import www.sanju.motiontoast.MotionToastStyle
-import www.sanju.motiontoast.R as TR
-import androidx.core.net.toUri
 import com.example.dopatox.ui.auth.AuthActivity
+import com.example.dopatox.ui.utils.PermissionUtils
+import com.example.dopatox.ui.utlis.successToast
 
 class PermissionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPermissionBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPermissionBinding.inflate(layoutInflater)
@@ -41,39 +36,23 @@ class PermissionActivity : AppCompatActivity() {
 
         // Usage permission
         binding.usagePermission.setOnClickListener {
-            if (!isUsageAccessGranted()) {
+            if (!PermissionUtils.isUsageAccessGranted(this)) {
                 binding.done1.isVisible = false
-                requestUsageAccess()
+                PermissionUtils.requestUsageAccess(this)
             } else {
                 binding.done1.isVisible = true
-                MotionToast.darkToast(
-                    this,
-                    getString(R.string.success),
-                    getString(R.string.usage_permission_granted),
-                    MotionToastStyle.SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.SHORT_DURATION,
-                    ResourcesCompat.getFont(this, TR.font.montserrat_bold)
-                )
+                successToast(this, getString(R.string.usage_permission_granted))
             }
         }
 
         // Display over permission
         binding.displayPermission.setOnClickListener {
-            if (!isDisplayOverPermissionGranted()) {
+            if (!PermissionUtils.isDisplayOverPermissionGranted(this)) {
                 binding.done2.isVisible = false
-                requestDisplayOverPermission()
+                PermissionUtils.requestDisplayOverPermission(this)
             } else {
                 binding.done2.isVisible = true
-                MotionToast.darkToast(
-                    this,
-                    getString(R.string.success),
-                    getString(R.string.display_over_permission_granted),
-                    MotionToastStyle.SUCCESS,
-                    MotionToast.GRAVITY_BOTTOM,
-                    MotionToast.SHORT_DURATION,
-                    ResourcesCompat.getFont(this, TR.font.montserrat_bold)
-                )
+                successToast(this, getString(R.string.display_over_permission_granted))
             }
         }
 
@@ -83,36 +62,4 @@ class PermissionActivity : AppCompatActivity() {
         }
 
     }
-
-    fun isUsageAccessGranted(): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val appOps = getSystemService(APP_OPS_SERVICE) as AppOpsManager
-            val mode = appOps.unsafeCheckOpNoThrow(
-                AppOpsManager.OPSTR_GET_USAGE_STATS,
-                android.os.Process.myUid(),
-                packageName
-            )
-            return mode == AppOpsManager.MODE_ALLOWED
-        }
-        return true
-    }
-
-    fun requestUsageAccess() {
-        val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
-    }
-
-    fun isDisplayOverPermissionGranted(): Boolean {
-        return Settings.canDrawOverlays(this)
-    }
-
-    fun requestDisplayOverPermission() {
-        val intent = Intent(
-            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-            "package:$packageName".toUri()
-        )
-        startActivity(intent)
-    }
-
 }
