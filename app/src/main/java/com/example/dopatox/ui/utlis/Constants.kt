@@ -8,7 +8,6 @@ import com.example.dopatox.domain.model.BoardItem
 
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import com.example.dopatox.domain.model.AppUsage
 
 object Constants {
 
@@ -34,19 +33,14 @@ object Constants {
             )
         )
 
-    val demoApps: List<AppUsage>
-        get() = listOf(
-            AppUsage("WhatsApp","WhatsApp", 2, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 20, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 2, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 50, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 10, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 22, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 29, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 30, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 34, R.drawable.me),
-            AppUsage("WhatsApp","WhatsApp", 45, R.drawable.me)
-        )
+    fun getHours(time: Long): Int {
+        return (time / 1000 / 60 / 60).toInt()
+    }
+
+    fun getMinutes(time: Long): Int {
+        return ((time / 1000 / 60) % 60).toInt()
+    }
+
 
     fun blurView(view: View, degree: Float) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

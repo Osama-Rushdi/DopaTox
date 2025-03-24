@@ -84,4 +84,6 @@ dependencies {
     implementation (libs.circularprogressbar)
     // android charts
     implementation (libs.mpandroidchart)
+    // shimmer
+    implementation (libs.shimmer)
 }

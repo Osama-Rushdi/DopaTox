@@ -25,6 +25,7 @@ navigationFragmentKtx = "2.8.9"
 retrofit = "2.11.0"
 room = "2.6.1"
 roundCornerProgressBar = "2.2.1"
+shimmer = "0.5.0"
 viewpager2 = "1.1.0"
 dotsindicator = "4.3"
 
@@ -57,6 +58,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 round-corner-progress-bar = { module = "com.akexorcist:round-corner-progress-bar", version.ref = "roundCornerProgressBar" }
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

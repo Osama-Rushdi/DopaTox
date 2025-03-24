@@ -1,3 +1,12 @@
 package com.example.dopatox.domain.model
 
-data class AppUsage(val packageName: String, val appName: String, val usageTime: Long, val icon: Int)
+import android.graphics.drawable.Drawable
+
+data class AppUsage(
+    val packageName: String,
+    val appName: String,
+    var usageTime: Long,
+    var hours: Int,
+    var minutes: Int,
+    val icon: Drawable
+)
