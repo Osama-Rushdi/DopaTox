@@ -21,8 +21,10 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import com.example.dopatox.R
+import com.example.dopatox.ui.home.AppShimmerAdapter
 import com.example.dopatox.ui.home.AppUsageAdapter
 import com.example.dopatox.ui.utlis.GetAppUsage
+import com.example.dopatox.ui.utlis.GetAppUsage.allTotalTime
 import com.example.dopatox.ui.utlis.successToast
 import kotlinx.coroutines.launch
 
@@ -33,6 +35,11 @@ class HomeFragment : Fragment() {
     private var usageHours = 0
     private var usageMinutes = 0
 
+    override fun onStart() {
+        super.onStart()
+        initProgressBar()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,31 +48,38 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         handleChart()
         updateDate()
         initListeners()
+        initShimmer()
         lifecycleScope.launch {
-            binding.appRv.adapter = AppUsageAdapter(GetAppUsage.getAppUsage(requireContext())) {
-                successToast(
-                    requireContext(),
-                    "${getHours(it.usageTime)}hr : ${getMinutes(it.usageTime)}min"
-                )
-            }
-            val progress = binding.usageProgress
-            usageHours = getHours(GetAppUsage.allTotalTime)
-            usageMinutes = getMinutes(GetAppUsage.allTotalTime)
-            binding.hours.text = usageHours.toString()
-            binding.min.text = usageMinutes.toString()
-            progress.setProgress(usageHours)
-            progress.setSecondaryProgress(usageHours + (usageMinutes.toFloat() / 60))
-            if (progress.getProgress() + progress.getSecondaryProgress() >= progress.getMax()) {
-                exceededLimit(progress)
-            }
+            initUi()
         }
     }
 
-    private fun exceededLimit(progress: RoundCornerProgressBar) {
+    private suspend fun initUi() {
+        binding.appRv.adapter = AppUsageAdapter(GetAppUsage.getAppUsage(requireContext())) {
+            successToast(
+                requireContext(),
+                "${getHours(it.usageTime)}hr : ${getMinutes(it.usageTime)}min"
+            )
+        }
+        binding.usageShimmer.hideShimmer()
+        usageHours = getHours(allTotalTime)
+        usageMinutes = getMinutes(allTotalTime)
+        binding.hours.text = usageHours.toString()
+        binding.min.text = usageMinutes.toString()
+        initProgressBar()
+    }
+
+    private fun initShimmer() {
+        val shimmerAdapter = AppShimmerAdapter()
+        binding.appRv.adapter = shimmerAdapter
+    }
+
+    private fun exceededProgressLimit(progress: RoundCornerProgressBar) {
         val red = ContextCompat.getColor(requireContext(), R.color.red)
         progress.setProgressColor(red)
         binding.hours.setTextColor(red)
@@ -86,6 +100,22 @@ class HomeFragment : Fragment() {
             updateDate()
             handleChart()
         }
+    }
+
+    private fun initProgressBar() {
+        val hours = getHours(allTotalTime)
+        val minutes = (getMinutes(allTotalTime).toFloat()) / 60
+        binding.usageProgress.setProgress(hours)
+        binding.usageProgress.setSecondaryProgress(hours + minutes)
+        if (hours + minutes >= binding.usageProgress.getMax()) {
+            exceededProgressLimit(binding.usageProgress)
+        }
+    }
+
+    private fun resetProgressBar() {
+        val progress = binding.usageProgress
+        progress.setProgress(0)
+        progress.setSecondaryProgress(0)
     }
 
     private fun handleChart() {
@@ -159,5 +189,10 @@ class HomeFragment : Fragment() {
             else -> "th"
         }
         binding.dateTv.text = "$dateText$suffix"
+    }
+
+    override fun onPause() {
+        super.onPause()
+        resetProgressBar()
     }
 }
