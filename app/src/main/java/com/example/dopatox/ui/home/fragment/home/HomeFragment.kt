@@ -1,32 +1,27 @@
-package com.example.dopatox.ui.home.fragment
+package com.example.dopatox.ui.home.fragment.home
 
-import Constants.getHours
-import Constants.getMinutes
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentHomeBinding
+import com.example.dopatox.ui.utlis.GetAppUsage
+import com.example.dopatox.ui.utlis.successToast
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.ValueFormatter
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
-import com.example.dopatox.R
-import com.example.dopatox.ui.home.AppShimmerAdapter
-import com.example.dopatox.ui.home.AppUsageAdapter
-import com.example.dopatox.ui.utlis.GetAppUsage
-import com.example.dopatox.ui.utlis.GetAppUsage.allTotalTime
-import com.example.dopatox.ui.utlis.successToast
-import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
@@ -37,7 +32,9 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        initProgressBar()
+        lifecycleScope.launch {
+            initUi()
+        }
     }
 
     override fun onCreateView(
@@ -54,21 +51,18 @@ class HomeFragment : Fragment() {
         updateDate()
         initListeners()
         initShimmer()
-        lifecycleScope.launch {
-            initUi()
-        }
     }
 
     private suspend fun initUi() {
         binding.appRv.adapter = AppUsageAdapter(GetAppUsage.getAppUsage(requireContext())) {
             successToast(
                 requireContext(),
-                "${getHours(it.usageTime)}hr : ${getMinutes(it.usageTime)}min"
+                "${Constants.getHours(it.usageTime)}hr : ${Constants.getMinutes(it.usageTime)}min"
             )
         }
         binding.usageShimmer.hideShimmer()
-        usageHours = getHours(allTotalTime)
-        usageMinutes = getMinutes(allTotalTime)
+        usageHours = Constants.getHours(GetAppUsage.allTotalTime)
+        usageMinutes = Constants.getMinutes(GetAppUsage.allTotalTime)
         binding.hours.text = usageHours.toString()
         binding.min.text = usageMinutes.toString()
         initProgressBar()
@@ -81,9 +75,19 @@ class HomeFragment : Fragment() {
 
     private fun exceededProgressLimit(progress: RoundCornerProgressBar) {
         val red = ContextCompat.getColor(requireContext(), R.color.red)
+        val lightRed = ContextCompat.getColor(requireContext(), R.color.lightRed)
         progress.setProgressColor(red)
         binding.hours.setTextColor(red)
-        binding.min.setTextColor(red)
+        binding.min.setTextColor(lightRed)
+    }
+
+    private fun refillProgressLimit(progress: RoundCornerProgressBar) {
+        val darkTeal = ContextCompat.getColor(requireContext(), R.color.dark_teal)
+        val lightTeal = ContextCompat.getColor(requireContext(), R.color.light_teal)
+        progress.setProgressColor(darkTeal)
+        progress.setSecondaryProgressColor(lightTeal)
+        binding.hours.setTextColor(darkTeal)
+        binding.min.setTextColor(lightTeal)
     }
 
     private fun initListeners() {
@@ -100,20 +104,31 @@ class HomeFragment : Fragment() {
             updateDate()
             handleChart()
         }
+
+        binding.setDailyLimits.setOnClickListener {
+            showScreenTimeLimitDialog()
+        }
     }
 
     private fun initProgressBar() {
-        val hours = getHours(allTotalTime)
-        val minutes = (getMinutes(allTotalTime).toFloat()) / 60
+        val hours = Constants.getHours(GetAppUsage.allTotalTime)
+        val minutes = (Constants.getMinutes(GetAppUsage.allTotalTime).toFloat()) / 60
         binding.usageProgress.setProgress(hours)
         binding.usageProgress.setSecondaryProgress(hours + minutes)
         if (hours + minutes >= binding.usageProgress.getMax()) {
             exceededProgressLimit(binding.usageProgress)
         }
+        else {
+            refillProgressLimit(binding.usageProgress)
+        }
     }
 
     private fun resetProgressBar() {
+        binding.usageShimmer.showShimmer(true)
+        binding.usageShimmer.startShimmer()
         val progress = binding.usageProgress
+        binding.hours.text = "0"
+        binding.min.text = "0"
         progress.setProgress(0)
         progress.setSecondaryProgress(0)
     }
@@ -195,4 +210,13 @@ class HomeFragment : Fragment() {
         super.onPause()
         resetProgressBar()
     }
+
+
+    fun showScreenTimeLimitDialog() {
+        val dialog = TimeLimitDialogFragment(binding.usageProgress) {
+            initProgressBar()
+        }
+        dialog.show(childFragmentManager, "timeLimitDialog")
+    }
+
 }

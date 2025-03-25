@@ -1,4 +1,4 @@
-package com.example.dopatox.ui.home
+package com.example.dopatox.ui.home.fragment.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -43,4 +43,7 @@
     <string name="most_used_applications">Most used applications</string>
     <string name="error">ERROR</string>
     <string name="warning">WARNING</string>
+    <string name="no_limit">No Limit</string>
+    <string name="limit_set_to">"Limit set to "</string>
+    <string name="screen_time_limit">Screen Time Limit</string>
 </resources>
