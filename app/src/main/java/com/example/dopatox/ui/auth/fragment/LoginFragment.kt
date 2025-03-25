@@ -1,5 +1,6 @@
 package com.example.dopatox.ui.auth.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentLoginBinding
+import com.example.dopatox.ui.home.MainActivity
 
 
 class LoginFragment : Fragment() {
@@ -21,6 +23,9 @@ class LoginFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.signIn.setOnClickListener {
+            startActivity(Intent(context, MainActivity::class.java))
+        }
         binding.signUpBtn.setOnClickListener {
             findNavController().popBackStack(R.id.registerFragment2, true)
             findNavController().navigate(

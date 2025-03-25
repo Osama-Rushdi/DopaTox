@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        tools:context=".ui.home.fragment.HomeFragment">
+        tools:context=".ui.home.fragment.home.HomeFragment">
 
 
         <com.google.android.material.card.MaterialCardView
@@ -67,6 +67,7 @@
             app:layout_constraintTop_toBottomOf="@id/userName">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/setDailyLimits"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingHorizontal="19dp"
@@ -83,7 +84,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/setDailyLimits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/set_daily_limits"
@@ -154,7 +154,7 @@
                             app:rcAnimationEnable="true"
                             app:rcAnimationSpeedScale="1"
                             app:rcBackgroundColor="@color/gray"
-                            app:rcMax="6"
+                            app:rcMax="5"
                             app:rcProgress="0"
                             app:rcProgressColor="@color/dark_teal"
                             app:rcRadius="10dp"
