@@ -65,6 +65,3 @@ Thanks to these amazing people for contributing! 💖
     </td>
   </tr>
 </table>
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Abdallah-Elsobky&repo=DopaTox&theme=github)
-
