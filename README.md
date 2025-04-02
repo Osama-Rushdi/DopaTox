@@ -53,7 +53,8 @@ Thanks to these amazing people for contributing! 💖
    <tr>
     <td align="center">
       <a href="https://github.com/Abdallah-Elsobky">
-        <img src="https://avatars.githubusercontent.com/Abdallah-Elsobky?s=100&v=4" width="100px;" alt=""/>
+<!--         <img src="https://avatars.githubusercontent.com/Abdallah-Elsobky?s=100&v=4" width="100px;" alt=""/> -->
+         ![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Abdallah-Elsobky&repo=DopaTox&theme=github)
         <br /><sub><b>Abdallah Elsobky</b></sub>
       </a>
     </td>
