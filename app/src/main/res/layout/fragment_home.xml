@@ -223,7 +223,7 @@
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barChart"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 android:layout_margin="8dp" />
         </androidx.cardview.widget.CardView>
 
@@ -242,8 +242,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/appRv"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
             android:layout_marginBottom="60dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

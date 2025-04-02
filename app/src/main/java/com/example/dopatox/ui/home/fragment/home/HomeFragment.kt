@@ -1,11 +1,14 @@
 package com.example.dopatox.ui.home.fragment.home
 
+import RoundedBarChartRenderer
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
@@ -29,6 +32,7 @@ class HomeFragment : Fragment() {
     private var selectedDayIndex = calendar.get(Calendar.DAY_OF_WEEK) - 2
     private var usageHours = 0
     private var usageMinutes = 0
+    private lateinit var render : RoundedBarChartRenderer
 
     override fun onStart() {
         super.onStart()
@@ -47,6 +51,12 @@ class HomeFragment : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        render = RoundedBarChartRenderer(
+            binding.barChart,
+            binding.barChart.animator,
+            binding.barChart.viewPortHandler,
+            25f
+        )
         handleChart()
         updateDate()
         initListeners()
@@ -137,14 +147,50 @@ class HomeFragment : Fragment() {
         var isToday = false
         val barChart = binding.barChart
         val barEntries = listOf(
-            BarEntry(0f, 2.0f),
-            BarEntry(1f, 5.0f),
-            BarEntry(2f, 4.5f),
+            BarEntry(0f, 2f),
+            BarEntry(1f, 5f),
+            BarEntry(2f, 4f),
             BarEntry(3f, 0.5f),
             BarEntry(4f, 0.3f),
             BarEntry(5f, 0.2f),
             BarEntry(6f, 0.4f)
         )
+
+
+        // -------------- Rashed - Change Y axis Labels -----------------
+        // text
+        val yAxis = barChart.axisLeft
+        yAxis.axisMinimum = 0f
+        yAxis.axisMaximum = 6f
+        yAxis.setLabelCount(4, true)
+
+        yAxis.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return when (value.toInt()) {
+                    0 -> "Low"
+                    2 -> "Medium"
+                    4 -> "High"
+                    6 -> "Peak"
+                    else -> ""
+                }
+            }
+        }
+        barChart.axisLeft.valueFormatter = yAxis.valueFormatter
+        // font type
+        val typeface = ResourcesCompat.getFont(requireContext(), R.font.relaway_normal)
+        yAxis.typeface = typeface
+        yAxis.textSize = 12f
+        yAxis.textColor = Color.BLACK
+        yAxis.typeface = Typeface.create(typeface, Typeface.BOLD)
+
+        // hide lines
+        yAxis.setDrawAxisLine(false)
+        val xAxis = barChart.xAxis
+        xAxis.setDrawAxisLine(false)
+
+
+
+
 
         val colors = mutableListOf<Int>().apply {
             val lightTeal = ContextCompat.getColor(requireContext(), R.color.dark_teal)
@@ -162,6 +208,7 @@ class HomeFragment : Fragment() {
 
         val dataSet = BarDataSet(barEntries, "Hours").apply {
             setColors(colors)
+
             valueTextSize = 12f
             valueTextColor = Color.BLACK
         }
@@ -188,6 +235,10 @@ class HomeFragment : Fragment() {
         barChart.description.isEnabled = false
         barChart.disableScroll()
 
+        // Rashed - Rounded bar Charts - Utlis\RoundedBarChartRenderer
+        barChart.renderer = render
+
+        barChart.setPinchZoom(false)
         barChart.invalidate()
     }
 
