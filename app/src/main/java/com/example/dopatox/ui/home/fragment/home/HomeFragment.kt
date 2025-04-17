@@ -1,6 +1,7 @@
 package com.example.dopatox.ui.home.fragment.home
 
 import RoundedBarChartRenderer
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -14,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
 import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentHomeBinding
+import com.example.dopatox.ui.home.profile.ProfileActivity
 import com.example.dopatox.ui.utlis.GetAppUsage
 import com.example.dopatox.ui.utlis.successToast
 import com.github.mikephil.charting.components.XAxis
@@ -32,7 +34,7 @@ class HomeFragment : Fragment() {
     private var selectedDayIndex = calendar.get(Calendar.DAY_OF_WEEK) - 2
     private var usageHours = 0
     private var usageMinutes = 0
-    private lateinit var render : RoundedBarChartRenderer
+    private lateinit var render: RoundedBarChartRenderer
 
     override fun onStart() {
         super.onStart()
@@ -118,6 +120,11 @@ class HomeFragment : Fragment() {
         binding.setDailyLimits.setOnClickListener {
             showScreenTimeLimitDialog()
         }
+
+        binding.userImage.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initProgressBar() {
@@ -127,8 +134,7 @@ class HomeFragment : Fragment() {
         binding.usageProgress.setSecondaryProgress(hours + minutes)
         if (hours + minutes >= binding.usageProgress.getMax()) {
             exceededProgressLimit(binding.usageProgress)
-        }
-        else {
+        } else {
             refillProgressLimit(binding.usageProgress)
         }
     }
@@ -187,9 +193,6 @@ class HomeFragment : Fragment() {
         yAxis.setDrawAxisLine(false)
         val xAxis = barChart.xAxis
         xAxis.setDrawAxisLine(false)
-
-
-
 
 
         val colors = mutableListOf<Int>().apply {
