@@ -28,6 +28,7 @@ roundCornerProgressBar = "2.2.1"
 shimmer = "0.5.0"
 viewpager2 = "1.1.0"
 dotsindicator = "4.3"
+navigationUiKtx = "2.8.9"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -59,6 +60,7 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 round-corner-progress-bar = { module = "com.akexorcist:round-corner-progress-bar", version.ref = "roundCornerProgressBar" }
 shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
