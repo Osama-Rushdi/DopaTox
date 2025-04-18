@@ -33,9 +33,9 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun initTabs() {
-        loadFragment(profileFragment)
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.profile)))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText(getString(R.string.badges)))
+        loadFragment(profileFragment)
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {

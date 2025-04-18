@@ -95,4 +95,6 @@
     <string name="weekly_avrages_usage">Weekly Avrages Usage</string>
     <string name="yearly_avrages_usage">Yearly Avrages Usage</string>
     <string name="log_out">LOG OUT</string>
+    <string name="last_badges">Last Badges</string>
+    <string name="achievements">Achievements</string>
 </resources>

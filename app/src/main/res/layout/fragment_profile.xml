@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,238 +8,233 @@
     android:paddingVertical="32dp"
     tools:context=".ui.home.profile.fragments.ProfileFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageCover"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:backgroundTint="@color/light_teal"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:contentDescription="profile image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile"
+            tools:ignore="HardcodedText" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/User"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imageCover"
+        app:layout_constraintStart_toStartOf="@id/imageCover"
+        app:layout_constraintTop_toBottomOf="@id/imageCover" />
+
+    <TextView
+        android:id="@+id/userEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="abdallah.elsobky@gmail.com"
+        android:textColor="@color/slate_gray"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/userName"
+        app:layout_constraintStart_toStartOf="@id/userName"
+        app:layout_constraintTop_toBottomOf="@id/userName"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="?attr/colorPrimaryContainer"
+        android:fontFamily="@font/helveticabold"
+        android:paddingHorizontal="8dp"
+        android:text="@string/edit_profile"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userEmail" />
+
+    <TextView
+        android:id="@+id/totalUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="6d 10h"
+        android:textColor="@color/dark_teal"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editBtn"
+        tools:ignore="HardcodedText" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/totalUsageCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/ice_blue"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/totalUsage">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="Total phone usage since 12 Mar, 25"
+            android:textColor="@color/dark_teal"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintBottom_toTopOf="@+id/logoutBtn"
+        app:layout_constraintTop_toBottomOf="@id/totalUsageCard">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/imageCover"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
-            android:backgroundTint="@color/light_teal"
-            app:cardCornerRadius="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-            <ImageView
-                android:id="@+id/profileImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:contentDescription="profile image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/profile"
-                tools:ignore="HardcodedText" />
+            <LinearLayout
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dailyUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4h 17m"
+                    android:textColor="@color/dark_teal"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/daily_avrages_usage"
+                    android:textColor="@color/slate_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/userName"
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/User"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/imageCover"
-            app:layout_constraintStart_toStartOf="@id/imageCover"
-            app:layout_constraintTop_toBottomOf="@id/imageCover" />
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-        <TextView
-            android:id="@+id/userEmail"
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weaklyUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4h 17m"
+                    android:textColor="@color/dark_teal"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/weekly_avrages_usage"
+                    android:textColor="@color/slate_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:text="abdallah.elsobky@gmail.com"
-            android:textColor="@color/slate_gray"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/userName"
-            app:layout_constraintStart_toStartOf="@id/userName"
-            app:layout_constraintTop_toBottomOf="@id/userName"
-            tools:ignore="HardcodedText" />
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/editBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorPrimaryContainer"
-            android:fontFamily="@font/helveticabold"
-            android:paddingHorizontal="8dp"
-            android:text="@string/edit_profile"
-            android:textColor="?attr/colorOnPrimaryContainer"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="22dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userEmail" />
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="8dp"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/totalUsage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="6d 10h"
-            android:textColor="@color/dark_teal"
-            android:textSize="64sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editBtn"
-            tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/yearlyUsage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="4h 17m"
+                    android:textColor="@color/dark_teal"
+                    android:textSize="16sp"
+                    tools:ignore="HardcodedText" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/totalUsageCard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/ice_blue"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/totalUsage">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/yearly_avrages_usage"
+                    android:textColor="@color/slate_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:gravity="center"
-                android:text="Total phone usage since 12 Mar, 25"
-                android:textColor="@color/dark_teal"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-        </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="?attr/colorPrimaryContainer"
+        android:fontFamily="@font/helveticabold"
+        android:padding="8dp"
+        android:text="@string/log_out"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:cornerRadius="22dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="47dp"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintBottom_toTopOf="@+id/logoutBtn"
-            app:layout_constraintTop_toBottomOf="@id/totalUsageCard">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:layout_width="110dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="8dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/dailyUsage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="4h 17m"
-                        android:textColor="@color/dark_teal"
-                        android:textSize="16sp"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/daily_avrages_usage"
-                        android:textColor="@color/slate_gray"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="8dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/weaklyUsage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="4h 17m"
-                        android:textColor="@color/dark_teal"
-                        android:textSize="16sp"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/weekly_avrages_usage"
-                        android:textColor="@color/slate_gray"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="8dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/yearlyUsage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="4h 17m"
-                        android:textColor="@color/dark_teal"
-                        android:textSize="16sp"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/yearly_avrages_usage"
-                        android:textColor="@color/slate_gray"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/logoutBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="?attr/colorPrimaryContainer"
-            android:fontFamily="@font/helveticabold"
-            android:padding="8dp"
-            android:text="@string/log_out"
-            android:textColor="?attr/colorOnPrimaryContainer"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:cornerRadius="22dp"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
