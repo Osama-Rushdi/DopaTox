@@ -8,6 +8,7 @@ import com.example.dopatox.domain.model.BoardItem
 
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.example.dopatox.domain.model.BadgeItem
 import kotlin.collections.mutableMapOf
 
 object Constants {
@@ -46,6 +47,24 @@ object Constants {
         9 to Pair("5 hours", 5f),
         10 to Pair("no limit", 24f)
 
+    )
+
+    val demoBadges = listOf(
+        BadgeItem(R.drawable.gold_medal, "Instagram", "3 Hours", "20 MAR"),
+        BadgeItem(R.drawable.silver_medal, "Facebook", "1 Hours", "30 MAR"),
+        BadgeItem(R.drawable.bronze_medal, "Twitter", "2 Hours", "15 MAR"),
+        BadgeItem(R.drawable.gold_medal, "Instagram", "3 Hours", "20 MAR"),
+        BadgeItem(R.drawable.silver_medal, "Facebook", "1 Hours", "30 MAR"),
+        BadgeItem(R.drawable.bronze_medal, "Twitter", "2 Hours", "15 MAR"),
+        BadgeItem(R.drawable.gold_medal, "Instagram", "3 Hours", "20 MAR"),
+        BadgeItem(R.drawable.silver_medal, "Facebook", "1 Hours", "30 MAR"),
+        BadgeItem(R.drawable.bronze_medal, "Twitter", "2 Hours", "15 MAR"),
+        BadgeItem(R.drawable.gold_medal, "Instagram", "3 Hours", "20 MAR"),
+        BadgeItem(R.drawable.silver_medal, "Facebook", "1 Hours", "30 MAR"),
+        BadgeItem(R.drawable.bronze_medal, "Twitter", "2 Hours", "15 MAR"),
+        BadgeItem(R.drawable.gold_medal, "Instagram", "3 Hours", "20 MAR"),
+        BadgeItem(R.drawable.silver_medal, "Facebook", "1 Hours", "30 MAR"),
+        BadgeItem(R.drawable.bronze_medal, "Twitter", "2 Hours", "15 MAR"),
     )
 
     fun getHours(time: Long): Int {
