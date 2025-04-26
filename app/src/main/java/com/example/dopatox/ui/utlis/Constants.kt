@@ -34,6 +34,11 @@ object Constants {
                 "A motivational challenge to inspire you to reduce screen time and engage in beneficial activities.",
             )
         )
+
+    val shareText = "\uD83D\uDCF5 Feeling overwhelmed by your phone?\n" +
+            "Try Dopatox — the smart way to limit screen time and build healthier habits!\n" +
+            "Get it now: https://www.dopatox.site"
+
     val timeLimits = mutableMapOf<Int, Pair<String, Float>>(
         0 to Pair("30 minutes", 0.5f),
         1 to Pair("1 hour", 1f),

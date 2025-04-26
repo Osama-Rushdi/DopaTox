@@ -54,6 +54,7 @@ class ProfileActivity : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+        binding.tabLayout.getTabAt(intent.getIntExtra("tab", 0))?.select()
     }
 
     private fun loadFragment(fragment: Fragment) {
