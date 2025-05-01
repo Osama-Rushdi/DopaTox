@@ -2,16 +2,20 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.DopaTox" parent="Theme.Material3.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/dark_teal</item>
         <item name="colorOnPrimary">@color/onWhite</item>
 
 
-        <item name="colorPrimaryContainer">@color/dark_teal</item>
-        <item name="colorOnPrimaryContainer">@color/white</item>
+        <item name="colorPrimaryContainer">@color/white</item>
+        <item name="colorOnPrimaryContainer">@color/dark_teal</item>
 
 
         <item name="colorSecondary">@color/light_teal</item>
         <item name="colorOnSecondary">@color/dark_teal</item>
+
+        <item name="colorBackgroundFloating">@color/white</item>
+
+        <item name="background">@color/ice_blue</item>
 
 
 
