@@ -3,6 +3,8 @@
 
     <color name="dark_teal">#294B52</color>
     <color name="light_teal">#B4D9D5</color>
+    <color name="midNight_teal">#0E1A1D</color>
+    <color name="blueGray">#122225</color>"
 
     <color name="ice_blue">#F8FBFB</color>
     <color name="slate_gray">#707B81</color>
@@ -18,4 +20,5 @@
 
     <color name="fire">#FD8B1A</color>
     <color name="green">#7DD221</color>
+
 </resources>

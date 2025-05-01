@@ -1,9 +1,21 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.DopaTox" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/onWhite</item>
+
+        <item name="colorPrimary">@color/light_teal</item>
         <item name="colorOnPrimary">@color/white</item>
 
+
+        <item name="colorPrimaryContainer">@color/blueGray</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+
+
+        <item name="colorSecondary">@color/dark_teal</item>
+        <item name="colorOnSecondary">@color/light_teal</item>
+
+        <item name="colorBackgroundFloating">@color/blueGray</item>
+
+        <item name="background">@color/midNight_teal</item>
 
         <item name="drawerArrowStyle">
             @style/DrawerArrowStyle

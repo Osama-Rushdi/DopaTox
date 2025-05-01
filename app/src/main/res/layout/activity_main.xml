@@ -19,9 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/white"
-        app:itemIconTint="@color/dark_teal"
-        app:itemRippleColor="@color/dark_teal"
-        app:itemTextColor="@color/dark_teal"
+        android:background="?attr/colorBackgroundFloating"
+        app:itemIconTint="@color/bottom_nav_icon_color"
+        app:itemRippleColor="?attr/colorPrimary"
+        app:itemTextColor="?attr/colorPrimary"
         app:menu="@menu/bottom_nav_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,8 +1,8 @@
 package com.example.dopatox.ui.home.fragment.home
 
+import Constants.getColorFromAttr
 import RoundedBarChartRenderer
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -94,12 +94,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun refillProgressLimit(progress: RoundCornerProgressBar) {
-        val darkTeal = ContextCompat.getColor(requireContext(), R.color.dark_teal)
-        val lightTeal = ContextCompat.getColor(requireContext(), R.color.light_teal)
-        progress.setProgressColor(darkTeal)
-        progress.setSecondaryProgressColor(lightTeal)
-        binding.hours.setTextColor(darkTeal)
-        binding.min.setTextColor(lightTeal)
+        val hoursColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorPrimary)
+        val minutesColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorSecondary)
+        progress.setProgressColor(hoursColor)
+        progress.setSecondaryProgressColor(minutesColor)
+        binding.hours.setTextColor(hoursColor)
+        binding.min.setTextColor(minutesColor)
     }
 
     private fun initListeners() {
@@ -161,7 +161,9 @@ class HomeFragment : Fragment() {
             BarEntry(5f, 0.2f),
             BarEntry(6f, 0.4f)
         )
-
+        val selectedDayColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorPrimary)
+        val unSelectedDayColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorSecondary)
+        val textColor = requireContext().getColorFromAttr(com.google.android.material.R.attr.colorOnPrimaryContainer)
 
         // -------------- Rashed - Change Y axis Labels -----------------
         // text
@@ -186,7 +188,7 @@ class HomeFragment : Fragment() {
         val typeface = ResourcesCompat.getFont(requireContext(), R.font.relaway_normal)
         yAxis.typeface = typeface
         yAxis.textSize = 12f
-        yAxis.textColor = Color.BLACK
+        yAxis.textColor = textColor
         yAxis.typeface = Typeface.create(typeface, Typeface.BOLD)
 
         // hide lines
@@ -196,14 +198,12 @@ class HomeFragment : Fragment() {
 
 
         val colors = mutableListOf<Int>().apply {
-            val lightTeal = ContextCompat.getColor(requireContext(), R.color.dark_teal)
-            val darkTeal = ContextCompat.getColor(requireContext(), R.color.light_teal)
             for (i in 0 until barEntries.size) {
                 if (i == selectedDayIndex) {
-                    add(lightTeal)
+                    add(selectedDayColor)
                     isToday = true
                 } else {
-                    add(darkTeal)
+                    add(unSelectedDayColor)
                     isToday = false
                 }
             }
@@ -213,7 +213,7 @@ class HomeFragment : Fragment() {
             setColors(colors)
 
             valueTextSize = 12f
-            valueTextColor = Color.BLACK
+            valueTextColor = textColor
         }
 
         val barData = BarData(dataSet)
@@ -231,7 +231,7 @@ class HomeFragment : Fragment() {
             granularity = 1f
             setDrawGridLines(false)
         }
-
+        xAxis.textColor = textColor
         barChart.axisLeft.setDrawGridLines(false)
         barChart.axisRight.isEnabled = false
         barChart.legend.isEnabled = false
@@ -240,7 +240,6 @@ class HomeFragment : Fragment() {
 
         // Rashed - Rounded bar Charts - Utlis\RoundedBarChartRenderer
         barChart.renderer = render
-
         barChart.setPinchZoom(false)
         barChart.invalidate()
     }

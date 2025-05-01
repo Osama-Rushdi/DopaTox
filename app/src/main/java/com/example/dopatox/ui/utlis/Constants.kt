@@ -2,6 +2,7 @@ import android.content.Context
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
+import android.util.TypedValue
 import android.view.View
 import com.example.dopatox.R
 import com.example.dopatox.domain.model.BoardItem
@@ -78,6 +79,12 @@ object Constants {
 
     fun getMinutes(time: Long): Int {
         return ((time / 1000 / 60) % 60).toInt()
+    }
+
+    fun Context.getColorFromAttr(attrColor: Int): Int {
+        val typedValue = TypedValue()
+        theme.resolveAttribute(attrColor, typedValue, true)
+        return typedValue.data
     }
 
 
