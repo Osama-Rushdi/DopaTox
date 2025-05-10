@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.challenge
 
 import com.google.gson.annotations.SerializedName
 
-data class ChallengeRequest(
+data class ChallengeRequestDM(
 
 	@field:SerializedName("duration")
 	val duration: String? = null,

@@ -10,11 +10,12 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentResetPasswordBinding
+import dagger.hilt.android.AndroidEntryPoint
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
 import www.sanju.motiontoast.R as TR
 
-
+@AndroidEntryPoint
 class ResetPasswordFragment : Fragment() {
     private lateinit var binding: FragmentResetPasswordBinding
     override fun onCreateView(

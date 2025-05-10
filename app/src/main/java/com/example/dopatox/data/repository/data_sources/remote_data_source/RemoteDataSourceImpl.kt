@@ -1,31 +1,31 @@
 package com.example.dopatox.data.repository.data_sources.remote_data_source
 
-import android.util.Log
 import com.example.dopatox.data.api.WebServices
-import com.example.dopatox.data.model.auth.RegisterRequest
-import com.example.dopatox.data.model.auth.RegisterResponse
-import com.example.dopatox.data.model.auth.other.LogoutRequest
-import com.example.dopatox.data.model.auth.other.RecentCodeRequest
-import com.example.dopatox.data.model.auth.other.VerifyCodeRequest
-import com.example.dopatox.data.model.auth.other.VerifyCodeResponse
-import com.example.dopatox.data.model.challenge.ChallengeRequest
-import com.example.dopatox.data.model.challenge.ChallengeResponse
-import com.example.dopatox.data.model.usage.UserUsageRequest
+import com.example.dopatox.data.mapper.toData
+import com.example.dopatox.data.mapper.toDomain
+import com.example.dopatox.domain.model.auth.RegisterRequest
+import com.example.dopatox.domain.model.auth.other.AuthResponse
+import com.example.dopatox.domain.model.auth.other.LogoutRequest
+import com.example.dopatox.domain.model.auth.other.RecentCodeRequest
+import com.example.dopatox.domain.model.auth.other.VerifyCodeRequest
+import com.example.dopatox.domain.model.challenge.ChallengeRequest
+import com.example.dopatox.domain.model.challenge.ChallengeResponse
+import com.example.dopatox.domain.model.usage.UserUsageRequest
 import retrofit2.Response
 import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor(private val api: WebServices) : RemoteDataSource {
-    override suspend fun register(request: RegisterRequest): RegisterResponse =
-        api.register(request)
+    override suspend fun register(request: RegisterRequest): AuthResponse =
+        api.register(request.toData()).toDomain()
 
-    override suspend fun verifyCode(request: VerifyCodeRequest): VerifyCodeResponse =
-        api.verifyCode(request)
+    override suspend fun verifyCode(request: VerifyCodeRequest): AuthResponse =
+        api.verifyCode(request.toData()).toDomain()
 
-    override suspend fun resendCode(request: RecentCodeRequest): RegisterResponse =
-        api.resendCode(request)
+    override suspend fun resendCode(request: RecentCodeRequest): AuthResponse =
+        api.resendCode(request.toData()).toDomain()
 
     override suspend fun logout(request: LogoutRequest): Response<Unit> {
-        val response = api.logout(request)
+        val response = api.logout(request.toData())
         if (response.isSuccessful) {
             return response
         } else {
@@ -36,14 +36,14 @@ class RemoteDataSourceImpl @Inject constructor(private val api: WebServices) : R
     override suspend fun getChallenges(): Response<List<ChallengeResponse>> {
         val response = api.getChallenges()
         return if (response.isSuccessful) {
-            Response.success(response.body()!!)
+            Response.success(response.body()!!.map { it.toDomain() })
         } else {
             throw Exception("Error in getChallenges: ${response.code()}")
         }
     }
 
     override suspend fun addChallenge(request: ChallengeRequest): Response<Unit> {
-        val response = api.addChallenges(request)
+        val response = api.addChallenges(request.toData())
         return if (response.isSuccessful) {
             Response.success(Unit)
         } else {
@@ -52,7 +52,7 @@ class RemoteDataSourceImpl @Inject constructor(private val api: WebServices) : R
     }
 
     override suspend fun updateChallenge(id: Int, request: ChallengeRequest): Response<Unit> {
-        val response = api.updateChallenges(id, request)
+        val response = api.updateChallenges(id, request.toData())
         return if (response.isSuccessful) {
             Response.success(Unit)
         } else {
@@ -70,7 +70,7 @@ class RemoteDataSourceImpl @Inject constructor(private val api: WebServices) : R
     }
 
     override suspend fun addChallengeBulk(list: List<ChallengeRequest>): Response<Unit> {
-        val response = api.addChallengeBulk(list)
+        val response = api.addChallengeBulk(list.map { it.toData() })
         return if (response.isSuccessful) {
             Response.success(Unit)
         } else {
@@ -123,7 +123,11 @@ class RemoteDataSourceImpl @Inject constructor(private val api: WebServices) : R
         }
     }
 
-    override suspend fun getUserUsageInRange(userId: String, startDate: String, endDate: String): Response<Unit> {
+    override suspend fun getUserUsageInRange(
+        userId: String,
+        startDate: String,
+        endDate: String
+    ): Response<Unit> {
         val response = api.getUserUsageInRange(userId, startDate, endDate)
         return if (response.isSuccessful) {
             Response.success(Unit)

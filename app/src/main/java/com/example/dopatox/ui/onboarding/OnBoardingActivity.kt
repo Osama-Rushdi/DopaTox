@@ -9,6 +9,9 @@ import com.example.dopatox.databinding.ActivityOnBoardingBinding
 import com.example.dopatox.ui.permission.PermissionActivity
 import com.example.trendify.ui.onboarding.OnboardingAdapter
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class OnBoardingActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOnBoardingBinding

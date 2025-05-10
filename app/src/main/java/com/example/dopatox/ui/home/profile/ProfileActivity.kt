@@ -13,7 +13,9 @@ import com.example.dopatox.databinding.ActivityProfileBinding
 import com.example.dopatox.ui.home.profile.fragments.BadgesFragment
 import com.example.dopatox.ui.home.profile.fragments.ProfileFragment
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileActivity : AppCompatActivity() {
     private val profileFragment = ProfileFragment()
     private val badgesFragment = BadgesFragment()

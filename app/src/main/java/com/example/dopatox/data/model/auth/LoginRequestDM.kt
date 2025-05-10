@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.auth
 
 import com.google.gson.annotations.SerializedName
 
-data class LoginRequest(
+data class LoginRequestDM(
 
 	@field:SerializedName("password")
 	val password: String? = null,

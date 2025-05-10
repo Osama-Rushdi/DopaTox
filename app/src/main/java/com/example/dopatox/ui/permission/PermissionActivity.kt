@@ -9,6 +9,9 @@ import com.example.dopatox.databinding.ActivityPermissionBinding
 import com.example.dopatox.ui.auth.AuthActivity
 import com.example.dopatox.ui.utils.PermissionUtils
 import com.example.dopatox.ui.utlis.successToast
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class PermissionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPermissionBinding

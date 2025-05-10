@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dopatox.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding

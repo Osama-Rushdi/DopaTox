@@ -10,7 +10,9 @@ import com.example.dopatox.R
 import com.example.dopatox.databinding.ScreenLimitDialogBinding
 import com.example.dopatox.ui.utlis.successToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TimeLimitDialogFragment(val progress: RoundCornerProgressBar,val onDismiss: () -> Unit) : BottomSheetDialogFragment() {
     private lateinit var binding: ScreenLimitDialogBinding
     override fun onCreateView(

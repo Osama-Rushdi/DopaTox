@@ -1,11 +1,11 @@
-package com.example.dopatox.data.model.auth
+package com.example.dopatox.data.model.auth.other
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class AuthResponseDM(
 
 	@field:SerializedName("faildMessage")
-	val faildMessage: Any? = null,
+	val faildMessage: String? = null,
 
 	@field:SerializedName("email")
 	val email: String? = null,

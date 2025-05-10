@@ -10,8 +10,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentLoginBinding
 import com.example.dopatox.ui.home.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     override fun onCreateView(

@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dopatox.databinding.FragmentChatBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ChatFragment : Fragment() {
     lateinit var binding: FragmentChatBinding

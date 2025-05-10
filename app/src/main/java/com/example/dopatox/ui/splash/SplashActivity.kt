@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dopatox.R
 import com.example.dopatox.databinding.ActivitySplashBinding
 import com.example.dopatox.ui.onboarding.OnBoardingActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dopatox.databinding.FragmentBadgesBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class BadgesFragment : Fragment() {
     lateinit var binding: FragmentBadgesBinding

@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.challenge
 
 import com.google.gson.annotations.SerializedName
 
-data class ChallengeErrorResponse(
+data class ChallengeErrorResponseDM(
 
 	@field:SerializedName("instance")
 	val instance: String? = null,

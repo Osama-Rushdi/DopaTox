@@ -1,15 +1,15 @@
-package com.example.dopatox.data.repository
+package com.example.dopatox.data.repository.repo_impl
 
-import com.example.dopatox.data.model.auth.RegisterRequest
-import com.example.dopatox.data.model.auth.RegisterResponse
-import com.example.dopatox.data.model.auth.other.LogoutRequest
-import com.example.dopatox.data.model.auth.other.RecentCodeRequest
-import com.example.dopatox.data.model.auth.other.VerifyCodeRequest
-import com.example.dopatox.data.model.auth.other.VerifyCodeResponse
-import com.example.dopatox.data.model.challenge.ChallengeRequest
-import com.example.dopatox.data.model.challenge.ChallengeResponse
-import com.example.dopatox.data.model.usage.UserUsageRequest
+import com.example.dopatox.domain.model.auth.RegisterRequest
+import com.example.dopatox.domain.model.auth.other.LogoutRequest
+import com.example.dopatox.domain.model.auth.other.RecentCodeRequest
+import com.example.dopatox.domain.model.auth.other.VerifyCodeRequest
+import com.example.dopatox.domain.model.challenge.ChallengeRequest
+import com.example.dopatox.domain.model.challenge.ChallengeResponse
+import com.example.dopatox.domain.model.usage.UserUsageRequest
+import com.example.dopatox.data.repository.Connectivity
 import com.example.dopatox.data.repository.data_sources.remote_data_source.RemoteDataSource
+import com.example.dopatox.domain.model.auth.other.AuthResponse
 import com.example.dopatox.domain.repo.Repository
 import retrofit2.Response
 import javax.inject.Inject
@@ -19,7 +19,7 @@ class RepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource
 ) : Repository {
 
-    override suspend fun register(request: RegisterRequest): RegisterResponse {
+    override suspend fun register(request: RegisterRequest): AuthResponse {
         return if (connectivity.isOnline()) {
             remoteDataSource.register(request)
         } else {
@@ -27,7 +27,7 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun verifyCode(request: VerifyCodeRequest): VerifyCodeResponse {
+    override suspend fun verifyCode(request: VerifyCodeRequest): AuthResponse {
         return if (connectivity.isOnline()) {
             remoteDataSource.verifyCode(request)
         } else {
@@ -35,7 +35,7 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun resendCode(request: RecentCodeRequest): RegisterResponse {
+    override suspend fun resendCode(request: RecentCodeRequest): AuthResponse {
         return if (connectivity.isOnline()) {
             remoteDataSource.resendCode(request)
         } else {

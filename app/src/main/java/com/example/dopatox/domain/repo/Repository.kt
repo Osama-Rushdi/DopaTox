@@ -1,22 +1,21 @@
 package com.example.dopatox.domain.repo
-import com.example.dopatox.data.model.challenge.ChallengeRequest
-import com.example.dopatox.data.model.challenge.ChallengeResponse
-import com.example.dopatox.data.model.auth.other.LogoutRequest
-import com.example.dopatox.data.model.auth.other.RecentCodeRequest
-import com.example.dopatox.data.model.auth.RegisterRequest
-import com.example.dopatox.data.model.auth.RegisterResponse
-import com.example.dopatox.data.model.auth.other.VerifyCodeRequest
-import com.example.dopatox.data.model.auth.other.VerifyCodeResponse
-import com.example.dopatox.data.model.usage.UserUsageRequest
+import com.example.dopatox.domain.model.challenge.ChallengeRequest
+import com.example.dopatox.domain.model.challenge.ChallengeResponse
+import com.example.dopatox.domain.model.auth.other.LogoutRequest
+import com.example.dopatox.domain.model.auth.other.RecentCodeRequest
+import com.example.dopatox.domain.model.auth.RegisterRequest
+import com.example.dopatox.domain.model.auth.other.AuthResponse
+import com.example.dopatox.domain.model.auth.other.VerifyCodeRequest
+import com.example.dopatox.domain.model.usage.UserUsageRequest
 import retrofit2.Response
 
 interface Repository {
 
-    suspend fun register(request: RegisterRequest): RegisterResponse
+    suspend fun register(request: RegisterRequest): AuthResponse
 
-    suspend fun verifyCode(request: VerifyCodeRequest):VerifyCodeResponse
+    suspend fun verifyCode(request: VerifyCodeRequest): AuthResponse
 
-    suspend fun resendCode(request: RecentCodeRequest): RegisterResponse
+    suspend fun resendCode(request: RecentCodeRequest): AuthResponse
 
     suspend fun logout(request: LogoutRequest): Response<Unit>
 

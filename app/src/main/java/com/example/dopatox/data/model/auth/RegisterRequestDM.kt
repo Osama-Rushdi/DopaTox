@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.auth
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterRequest(
+data class RegisterRequestDM(
 
 	@field:SerializedName("firstName")
 	val firstName: String? = null,

@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.usage
 
 import com.google.gson.annotations.SerializedName
 
-data class AppUsages(
+data class AppUsagesDM(
 
 	@field:SerializedName("additionalProp1")
 	val additionalProp1: String? = null,

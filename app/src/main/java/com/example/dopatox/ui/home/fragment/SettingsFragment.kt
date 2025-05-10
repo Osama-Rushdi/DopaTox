@@ -15,6 +15,9 @@ import com.example.dopatox.R
 import com.example.dopatox.databinding.FragmentSettingsBinding
 import com.example.dopatox.ui.home.profile.ProfileActivity
 import androidx.core.graphics.drawable.toDrawable
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class SettingsFragment : Fragment() {
     lateinit var binding: FragmentSettingsBinding

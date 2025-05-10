@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dopatox.databinding.FragmentChallengesBinding
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 
 class ChallengesFragment : Fragment() {
     lateinit var binding: FragmentChallengesBinding

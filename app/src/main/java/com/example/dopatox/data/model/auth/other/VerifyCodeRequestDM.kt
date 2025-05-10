@@ -2,7 +2,7 @@ package com.example.dopatox.data.model.auth.other
 
 import com.google.gson.annotations.SerializedName
 
-data class VerifyCodeRequest(
+data class VerifyCodeRequestDM(
 
 	@field:SerializedName("code")
 	val code: String? = null,

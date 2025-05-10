@@ -1,8 +1,9 @@
 package com.example.dopatox.data.model.usage
 
+import com.example.dopatox.domain.model.usage.AppUsages
 import com.google.gson.annotations.SerializedName
 
-data class UserUsageRequest(
+data class UserUsageRequestDM(
 
     @field:SerializedName("logDate")
 	val logDate: String? = null,
