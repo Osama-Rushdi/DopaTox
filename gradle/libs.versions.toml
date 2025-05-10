@@ -17,7 +17,7 @@ constraintlayout = "2.2.1"
 
 converterGson = "2.11.0"
 hiltAndroidCompiler = "2.51.1"
-ksp = "2.0.20-1.0.24"
+ksp = "2.0.0-1.0.24"
 loggingInterceptor = "4.12.0"
 motiontoast = "1.4"
 mpandroidchart = "v3.1.0"

@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dopatox.domain.model.auth.RegisterRequest
+import com.example.dopatox.domain.model.auth.other.AuthResponse
 import com.example.dopatox.domain.model.auth.other.LogoutRequest
 import com.example.dopatox.domain.model.auth.other.VerifyCodeRequest
 import com.example.dopatox.domain.repo.Repository
@@ -24,7 +25,7 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val response = repository.register(request)
-                stateShow.postValue(AuthState.SuccessRegister(response))
+                stateShow.postValue(AuthState.SuccessAuth(response))
             } catch (e: Exception) {
                 stateShow.postValue(AuthState.Error(e.message ?: "Unknown error"))
             }
@@ -36,7 +37,7 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val response = repository.verifyCode(request)
-                stateShow.postValue(AuthState.SuccessVerifyCode(response))
+                stateShow.postValue(AuthState.SuccessAuth(response))
             } catch (e: Exception) {
                 stateShow.postValue(AuthState.Error(e.message ?: "Unknown error"))
             }
@@ -57,8 +58,7 @@ class AuthViewModel @Inject constructor(
 
     sealed class AuthState {
         data object Loading : AuthState()
-        data class SuccessRegister(val response: RegisterResponseDM) : AuthState()
-        data class SuccessVerifyCode(val response: VerifyCodeResponse) : AuthState()
+        data class SuccessAuth(val response: AuthResponse) : AuthState()
         data class SuccessLogout(val response: Response<Unit>) : AuthState()
         data class Error(val message: String) : AuthState()
     }

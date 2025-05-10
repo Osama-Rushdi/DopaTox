@@ -31,9 +31,9 @@ class AuthActivity : AppCompatActivity() {
     }
 
     private fun allObserveTest() {
-        authViewModel.register(RegisterRequest())
-        authViewModel.verifyCode(VerifyCodeRequest())
-        authViewModel.logout(LogoutRequest())
+//        authViewModel.register(RegisterRequest())
+//        authViewModel.verifyCode(VerifyCodeRequest())
+//        authViewModel.logout(LogoutRequest())
     }
 
     override fun onSupportNavigateUp(): Boolean {
